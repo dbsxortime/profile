@@ -9,8 +9,8 @@ function Test() {
 			<h3 className='active'>Profile</h3>
 			<h4>Profile</h4>
 			<span>Javascript<Skill grade={'1'}/></span>
-			<span>Java<Skill grade={'1'}/></span>
-			<span>React.js<Skill grade={'1'}/></span>
+			<span>Java<Skill grade={'2'}/></span>
+			<span>React.js<Skill grade={'3'}/></span>
 		</>
 	)
 }
