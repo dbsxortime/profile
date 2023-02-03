@@ -1,15 +1,11 @@
 import SkillOnOff from "./SkillOnOff"
 
 function Skill({grade}) {
-	const skillArr = []
-	for(let i=1; i<=3; i++){
-		skillArr.push(grade>=i)
-	}
 	return (
 		<>
-			{skillArr.map((data, idx)=>{
-				return <SkillOnOff key={idx} set={data}/>
-			})}
+			<SkillOnOff set={grade>=1}/>
+			<SkillOnOff set={grade>=2}/>
+			<SkillOnOff set={grade>=3}/>
 		</>
 	)
 }
