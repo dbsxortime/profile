@@ -1,5 +1,5 @@
 import Wrapper from "Components/Wrapper/Wrapper";
-import Introduce from "Pages/Introduce/Introduce";
+import Introduce from "Pages/About/About";
 import Main from "Pages/Main/Main";
 import Test from "Pages/Test/Test";
 import { Route, Routes, useLocation } from "react-router-dom";

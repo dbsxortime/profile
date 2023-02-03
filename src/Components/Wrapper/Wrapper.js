@@ -16,5 +16,4 @@ const Div = styled.div`
 	justify-content:center;
 	align-items:center;
 	flex-direction: column;
-	transition: all .25s ease-in;
 `
