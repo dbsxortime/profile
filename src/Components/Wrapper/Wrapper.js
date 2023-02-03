@@ -1,0 +1,20 @@
+import styled from "styled-components"
+
+function Wrapper({children}) {
+	
+	return (
+		<Div>{children}</Div>
+	)
+}
+
+export default Wrapper
+
+const Div = styled.div`
+	width:100%;
+	height:100%;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	flex-direction: column;
+	transition: all .25s ease-in;
+`
