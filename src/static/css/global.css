@@ -97,3 +97,14 @@ a:hover {text-decoration: underline;}
 .on{
 	background-color:#29453C;
 }
+
+.menu-top{
+	width:100%;
+	top:6rem;
+}
+
+.menu-left{
+	left:3rem;
+	height:100%;
+	flex-direction: column;
+}

@@ -1,13 +1,24 @@
+import { useState } from "react";
 import { Link } from "react-router-dom"
 import styled from "styled-components"
+import { menuArray } from "util/nav"
 
 function Navigator() {
+	const [type, setType] = useState('top');
+	
+	const onNavStyleHandler = ()=> {
+		setType((prev)=>{
+			return prev !== 'top' ? 'top' : 'left'
+		})
+	}
+
 	return (
 		<>
-			<Nav>
-				<Link to="/"><Menu>Home</Menu></Link>
-				<Link to="/about"><Menu>About</Menu></Link>
-				<Link to="/test"><Menu>Test</Menu></Link>
+			<Nav className={'menu-'+type}>
+				{menuArray.map((menu, idx)=>{
+					return <Link to={menu.url} key={idx}><Menu>{menu.name}</Menu></Link>
+				})}
+			<button onClick={onNavStyleHandler}>Change nav style</button>
 			</Nav>
 			<Header>FrontBack</Header>
 			<Footer>Park Yun Taek</Footer>
@@ -20,24 +31,12 @@ export default Navigator
 // ㆍ 한글 아래아 특수문자
 
 const Nav = styled.nav`
-	width:100%;
+	position:fixed;
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	position:fixed;
-	top:6rem;
 	z-index:9;
 `
-
-// const Nav = styled.nav`
-// 	height:100%;
-// 	position:fixed;
-// 	left:3rem;
-// 	display:flex;
-// 	justify-content:center;
-// 	align-items:center;
-// 	flex-direction: column;
-// `
 
 const Menu = styled.span`
 	display:block;
