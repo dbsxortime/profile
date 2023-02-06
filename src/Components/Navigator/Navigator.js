@@ -17,21 +17,32 @@ function Navigator() {
 
 export default Navigator
 
-// ·
+// ㆍ 한글 아래아 특수문자
 
 const Nav = styled.nav`
-	height:100%;
-	position:fixed;
-	left:3rem;
+	width:100%;
 	display:flex;
 	justify-content:center;
 	align-items:center;
-	flex-direction: column;
+	position:fixed;
+	top:6rem;
+	z-index:9;
 `
+
+// const Nav = styled.nav`
+// 	height:100%;
+// 	position:fixed;
+// 	left:3rem;
+// 	display:flex;
+// 	justify-content:center;
+// 	align-items:center;
+// 	flex-direction: column;
+// `
 
 const Menu = styled.span`
 	display:block;
 	margin: 0.5rem 1rem;
+	width: 10rem;
 
 	&::before {
 		content: "ㆍ";

@@ -1,0 +1,34 @@
+.fade-enter {
+	opacity: 0;
+}
+.fade-enter-active {
+	opacity: 1;
+	transition: opacity 500ms;
+}
+.fade-exit {
+	opacity: 1;
+}
+.fade-exit-active {
+	opacity: 0;
+	transition: opacity 500ms;
+}
+
+
+.slide-to-left-enter {
+	opacity: 0;
+	transform: translateX(3%);
+}
+.slide-to-left-enter-active {
+	opacity: 1;
+	transform: translateX(0%);
+	transition: all 500ms;
+}
+.slide-to-left-exit {
+	opacity: 1;
+	transform: translateX(0%);
+}
+.slide-to-left-exit-active {
+	opacity: 0;
+	transform: translateX(-3%);
+	transition: all 500ms;
+}
