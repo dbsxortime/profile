@@ -2,53 +2,64 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Navigator from "Components/Navigator/Navigator";
 import Wrapper from "Components/Wrapper/Wrapper";
-import { getMenuObject, menuArray } from "util/nav";
+import { menuArray, getMenuObject } from "util/nav";
 import { useState } from "react";
+import Main from "Pages/Main/Main";
+import About from "Pages/About/About";
+import Test from "Pages/Test/Test";
 
 function Display() {
+	const location = useLocation()
+	const navigator = useNavigate()
 	const [touchPosition, setTouchPosition] = useState()
 	const [animationClassName, setAnimationClassName] = useState('slide-to-bottom')
-	const location = useLocation();
-	const navigator = useNavigate();
-
+	const menuObj = getMenuObject();
+	
 	const touchEnd = (e) => {
-		const distanceY = touchPosition.y - e.changedTouches[0].pageY
-		if(distanceY<0){
+		if(touchPosition.y - e.changedTouches[0].pageY > 0){
 			 // next event
-			goNextPage()
+			checkNextPage()
 		}else{
 			// prev event
-			goPrevPage()
+			checkPrevPage()
 		}
 	}
 	
 	const handleOnWheel = (e) => {
-        if (e.nativeEvent.wheelDelta > 0) {
+        if (e.nativeEvent.wheelDelta < 0) {
             // next event
-			goNextPage()
+			checkNextPage()
 		} else {
             // prev event
-			goPrevPage()
+			checkPrevPage()
         }
     }
 
-	const goNextPage = () => {
+	const goPrevPage = () => {
 		setAnimationClassName('slide-to-bottom')
-		const menuObj = getMenuObject()
-		if(menuObj[location.pathname].idx === 0)return;
 		navigator(menuArray[menuObj[location.pathname].idx-1].url)
 	}
 
-	const goPrevPage = () => {
+	const goNextPage = () => {
 		setAnimationClassName('slide-to-top')
-		const menuObj = getMenuObject()
-		if(menuObj[location.pathname].idx === menuArray.length-1)return;
 		navigator(menuArray[menuObj[location.pathname].idx+1].url)
 	}
 
+	const checkPrevPage = () => {
+		if(menuObj[location.pathname].idx === 0)return;
+		goPrevPage();
+	}
+
+	const checkNextPage = () => {
+		if(menuObj[location.pathname].idx === menuArray.length-1)return;
+		goNextPage();
+	}
+
+	console.log(menuArray)
+	
 	return (
 		<>
-			<Navigator />
+			<Navigator page={location.pathname}/>
 			<TransitionGroup onWheel={handleOnWheel} 
 				onTouchStart={(e) => setTouchPosition({
 					x: e.changedTouches[0].pageX, 
@@ -57,12 +68,17 @@ function Display() {
 				onTouchEnd={touchEnd}
 			>
 				<CSSTransition key={location.key} timeout={500} classNames={animationClassName}>
-				{/* <CSSTransition key={location.key} timeout={500} classNames="fade"> */}
 					<Wrapper>
 						<Routes location={location}>
-							{menuArray.map((menu, idx)=>{
-								return <Route path={menu.url} element={menu.page} exact={menu.exact} key={idx}/>
-							})}
+							<Route path={'/'} element={<Main goNextPage={goNextPage} goPrevPage={goPrevPage}/>} exact/>
+							<Route path={'/about'} element={<About goNextPage={goNextPage} goPrevPage={goPrevPage}/>} exact/>
+							<Route path={'/test'} element={<Test goNextPage={goNextPage} goPrevPage={goPrevPage}/>} exact/>
+
+							{/* {menuArray.map((menu, idx)=>{
+								return (
+									<Route path={menu.url} element={menu.page} exact={menu.exact} key={idx}/>
+								)
+							})} */}
 						</Routes>
 					</Wrapper>
 				</CSSTransition>

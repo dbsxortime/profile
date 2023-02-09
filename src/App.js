@@ -6,7 +6,7 @@ import Display from 'Display/Display';
 function App() {
 	return (
 		<>
-			<Router>
+			<Router basename={'/'}>
 				<Display/>
 			</Router>
 		</>
