@@ -7,6 +7,7 @@ import { useState } from "react";
 import Main from "Pages/Main/Main";
 import About from "Pages/About/About";
 import Test from "Pages/Test/Test";
+import Project from "Pages/Project/Project";
 
 function Display() {
 	const location = useLocation()
@@ -70,6 +71,7 @@ function Display() {
 						<Routes location={location}>
 							<Route path={'/'} element={<Main goNextPage={goNextPage} goPrevPage={goPrevPage}/>} exact/>
 							<Route path={'/about'} element={<About goNextPage={goNextPage} goPrevPage={goPrevPage}/>} exact/>
+							<Route path={'/project'} element={<Project goNextPage={goNextPage} goPrevPage={goPrevPage}/>} exact/>
 							<Route path={'/test'} element={<Test goNextPage={goNextPage} goPrevPage={goPrevPage}/>} exact/>
 
 							{/* {menuArray.map((menu, idx)=>{

@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import styled from 'styled-components'
 import { getMenuObject } from 'util/nav';
 
-function About({ goNextPage, goPrevPage }) {
+function Project({ goNextPage, goPrevPage }) {
 	const location = useLocation()
 	const aboutChild = getMenuObject()[location.pathname].child
 	const [obj, setObj] = useState(aboutChild[0]);
@@ -21,7 +21,7 @@ function About({ goNextPage, goPrevPage }) {
 
 	const checkPrevPage = () => {
 		// prev event
-		if(obj.url !== 'profile'){
+		if(obj.url !== 'resume'){
 			setObj(aboutChild[aboutChild.indexOf(obj)-1])
 		}else{
 			goPrevPage()
@@ -51,7 +51,7 @@ function About({ goNextPage, goPrevPage }) {
 
 	return (
 		<>
-			<h2>About Me</h2>
+			<h2>Project</h2>
 			<SubMenu onWheel={handleOnWheel}>
 				{aboutChild.map((menu)=>{
 					return (
@@ -76,7 +76,7 @@ function About({ goNextPage, goPrevPage }) {
 	)
 }
 
-export default About
+export default Project
 
 const SubMenu = styled.div`
 	width: 35%;

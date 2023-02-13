@@ -4,6 +4,8 @@ import IAm from "Pages/About/IAm"
 import Profile from "Pages/About/Profile"
 import Skills from "Pages/About/Skills"
 import Main from "Pages/Main/Main"
+import Project from "Pages/Project/Project"
+import Resume from "Pages/Project/Resume"
 import Test from "Pages/Test/Test"
 
 export const menuArray = [
@@ -38,6 +40,32 @@ export const menuArray = [
 				table:<Career />
 			},
 		]
+	},
+	{
+		url:'/project',
+		page:<Project />,
+		name:'Project',
+		child:[{
+			name:'Resume',
+			url:'resume',
+			table:<Resume />
+		},
+		{
+			name:'I AM',
+			url:'iam',
+			table:<IAm />
+		},
+		{
+			name:'Skills',
+			url:'skills',
+			table:<Skills />
+		},
+		{
+			name:'Career',
+			url:'career',
+			table:<Career />
+		},
+	]
 	},
 	{
 		url:'/test',

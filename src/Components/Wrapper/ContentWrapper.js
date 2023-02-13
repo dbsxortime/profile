@@ -1,18 +1,17 @@
 import styled from "styled-components"
 
-function Wrapper({children}) {
+function ContentWrapper({children}) {
 	
 	return (
 		<Div>{children}</Div>
 	)
 }
 
-export default Wrapper
+export default ContentWrapper
 
 const Div = styled.div`
 	width:100%;
-	height:100%;
-	position:absolute;
+	
 	display:flex;
 	justify-content:center;
 	align-items:center;

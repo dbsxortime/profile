@@ -91,9 +91,9 @@ td, th{
 }
 
 table{
-	width:50%;
 	position:relative;
-	left:15rem;
+	left:16rem;
+	width:100%;
 }
 
 td{
