@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { menuArray } from "util/nav"
 
-function Navigator() {
-	const [type, setType] = useState('top');
+function Navigator({ page }) {
+	const [type, setType] = useState('left');
 	
 	const onNavStyleHandler = ()=> {
 		setType((prev)=>{
@@ -16,7 +16,13 @@ function Navigator() {
 		<>
 			<Nav className={'menu-'+type}>
 				{menuArray.map((menu, idx)=>{
-					return <Link to={menu.url} key={idx}><Menu>{menu.name}</Menu></Link>
+					return (
+						<div key={idx}>
+							<Link to={menu.url}>
+								<Menu className={page === menu.url ? 'active' : null}>{menu.name}</Menu>
+							</Link>
+						</div>
+					)
 				})}
 			<button onClick={onNavStyleHandler}>Change nav style</button>
 			</Nav>
@@ -41,7 +47,7 @@ const Nav = styled.nav`
 const Menu = styled.span`
 	display:block;
 	margin: 0.5rem 1rem;
-	width: 10rem;
+	width: 15rem;
 
 	&::before {
 		content: "ㆍ";

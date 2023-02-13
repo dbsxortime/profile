@@ -55,6 +55,9 @@ h3{
 	line-height:4.8rem;
 	height:4.8rem;
 	opacity:0.4;
+	display:inline-block;
+	width:10rem;
+	text-align:center;
 }
 
 h4{
@@ -77,6 +80,44 @@ span{
 	font-size:1.9rem;
 	line-height: 2.4rem;
 	height:2.4rem;
+	display:block;
+}
+
+td, th{
+	font-family: 'Montserrat-bold';
+	font-size:1.9rem;
+	line-height: 2.4rem;
+	height:2.4rem;
+}
+
+table{
+	width:50%;
+	position:relative;
+	left:15rem;
+}
+
+td{
+	width:40%;
+	padding:2rem 1rem 2rem 5rem;
+	text-align:left;
+	font-family: 'Montserrat-bold';
+}
+
+th{
+	width:10%;
+	text-align:center;
+	font-weight: 400;
+	font-family: 'Montserrat-bold';
+}
+
+button{
+	background:none;
+	border:none;
+	cursor:pointer;
+}
+
+button:hover > * {
+	text-decoration: underline;
 }
 
 a {color:var(--my-green); font-family: 'Montserrat-bold'; font-size:1.9rem;}
