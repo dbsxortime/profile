@@ -21,15 +21,6 @@ function Navigator({ page }) {
 							<Link to={menu.url}>
 								<Menu className={page === menu.url ? 'active' : null}>{menu.name}</Menu>
 							</Link>
-							<>
-								{menu.child && menu.child.map((sub, sIndex)=>{
-									return (
-										<Link to={sub.url} key={sIndex}>
-											<SubMenu className={page === sub.url ? 'active' : null}>{sub.name}</SubMenu>
-										</Link>
-									)
-								})}
-							</>
 						</div>
 					)
 				})}
@@ -60,18 +51,6 @@ const Menu = styled.span`
 
 	&::before {
 		content: "ㆍ";
-	}
-`
-
-const SubMenu = styled.span`
-	display:block;
-	margin: 0 1rem 0.5rem;
-	width: 13rem;
-	font-size: 1.5rem;
-	
-	&::before {
-		content: "ㆍ";
-		margin-left:2rem;
 	}
 `
 

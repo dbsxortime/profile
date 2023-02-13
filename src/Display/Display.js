@@ -16,10 +16,10 @@ function Display() {
 	const menuObj = getMenuObject();
 	
 	const touchEnd = (e) => {
-		if(touchPosition.y - e.changedTouches[0].pageY > 0){
+		if(touchPosition.y - e.changedTouches[0].pageY > 100){
 			 // next event
 			checkNextPage()
-		}else{
+		}else if(touchPosition.y - e.changedTouches[0].pageY < -100){
 			// prev event
 			checkPrevPage()
 		}
@@ -54,8 +54,6 @@ function Display() {
 		if(menuObj[location.pathname].idx === menuArray.length-1)return;
 		goNextPage();
 	}
-
-	console.log(menuArray)
 	
 	return (
 		<>

@@ -11,10 +11,10 @@ function About({ goNextPage, goPrevPage }) {
 	const [touchPosition, setTouchPosition] = useState()
 	
 	const touchEnd = (e) => {
-		if(touchPosition.y - e.changedTouches[0].pageY > 0){
+		if(touchPosition.y - e.changedTouches[0].pageY > 20){
 			 // next event
 			checkNextPage()
-		}else{
+		}else if(touchPosition.y - e.changedTouches[0].pageY < -20){
 			// prev event
 			checkPrevPage()
 		}
