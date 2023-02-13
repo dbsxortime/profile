@@ -38,7 +38,6 @@ export const menuArray = [
 				table:<Career />
 			},
 		]
-		
 	},
 	{
 		url:'/test',
