@@ -5,7 +5,7 @@ import Profile from "Pages/About/Profile"
 import Skills from "Pages/About/Skills"
 import Main from "Pages/Main/Main"
 import Project from "Pages/Project/Project"
-import Resume from "Pages/Project/Resume"
+import Smartro from "Pages/Project/Smartro"
 import Test from "Pages/Test/Test"
 
 export const menuArray = [
@@ -25,9 +25,9 @@ export const menuArray = [
 				table:<Profile />
 			},
 			{
-				name:'I AM',
-				url:'iam',
-				table:<IAm />
+				name:'Career',
+				url:'career',
+				table:<Career />
 			},
 			{
 				name:'Skills',
@@ -35,9 +35,9 @@ export const menuArray = [
 				table:<Skills />
 			},
 			{
-				name:'Career',
-				url:'career',
-				table:<Career />
+				name:'I AM',
+				url:'iam',
+				table:<IAm />
 			},
 		]
 	},
@@ -46,9 +46,9 @@ export const menuArray = [
 		page:<Project />,
 		name:'Project',
 		child:[{
-			name:'Resume',
-			url:'resume',
-			table:<Resume />
+			name:'Smartro',
+			url:'smartro',
+			table:<Smartro />
 		},
 		{
 			name:'I AM',

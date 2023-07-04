@@ -6,6 +6,11 @@
 	src:url('../fonts/Montserrat-SemiBold.ttf');
 	font-family: 'Montserrat-bold';
 }
+@font-face{
+	src:url('../fonts/NANUMSQUARE_ACR.TTF');
+	font-family: 'Nanum';
+	unicode-range: U+AC00-D7A3;
+}
 
 :root {
 	--my-green: #29453C;
@@ -76,7 +81,7 @@ p{
 }
 
 span{
-	font-family: 'Montserrat';
+	font-family: 'Nanum', 'Montserrat';
 	font-size:1.9rem;
 	line-height: 2.4rem;
 	height:2.4rem;
@@ -84,7 +89,7 @@ span{
 }
 
 td, th{
-	font-family: 'Montserrat-bold';
+	font-family: 'Nanum', 'Montserrat-bold';
 	font-size:1.9rem;
 	line-height: 2.4rem;
 	height:2.4rem;
@@ -100,14 +105,12 @@ td{
 	width:40%;
 	padding:2rem 1rem 2rem 5rem;
 	text-align:left;
-	font-family: 'Montserrat-bold';
 }
 
 th{
 	width:10%;
 	text-align:center;
-	font-weight: 400;
-	font-family: 'Montserrat-bold';
+	font-weight: bold;
 }
 
 button{
@@ -148,4 +151,8 @@ a:hover {text-decoration: underline;}
 	left:3rem;
 	height:100%;
 	flex-direction: column;
+}
+
+.font-nanum{
+	font-family: 'Nanum';
 }
